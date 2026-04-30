@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JUDUL TAB BROWSER DIUBAH -->
+    <title> | PT.Arjuna Deep Traveling</title>
+    <link href="IMG_1799.PNG" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4B0082; /* Deep Purple */
+            --accent: #D4AF37;  /* Gold */
+            --dark: #121212;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8f9fa; color: var(--dark); overflow-x: hidden; }
+
+        /* HEADER */
+        header {
+            background: rgba(75, 0, 130, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        /* LOGO DIUBAH SESUAI PERMINTAAN */
+        .logo { 
+            color: var(--light); 
+            font-size: 1.3rem; 
+            font-weight: 800; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--accent); font-weight: 400; }
+
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { 
+            color: var(--light); 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+        nav ul li a:hover { opacity: 1; color: var(--accent); }
+
+        /* HERO SECTION */
+        #beranda {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('IMG_1799.PNG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+        #beranda h1 { 
+            font-size: clamp(2.2rem, 7vw, 4rem); 
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #beranda p { 
+            color: var(--accent); 
+            font-size: 1.1rem; 
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        .btn-main {
+            padding: 15px 40px;
+            background: var(--accent);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+
+        /* SECTION STYLING */
+        section { padding: 120px 8% 60px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { 
+            font-size: 2.2rem; 
+            color: var(--primary); 
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -15px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        .glass-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+        th { 
+            padding: 15px 20px; 
+            color: var(--primary); 
+            text-align: left; 
+            font-size: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        td { 
+            padding: 18px 20px; 
+            background: #ffffff; 
+            transition: var(--transition);
+            border-top: 1px solid #f5f5f5;
+            border-bottom: 1px solid #f5f5f5;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        tr td:first-child { border-left: 1px solid #f5f5f5; border-radius: 12px 0 0 12px; }
+        tr td:last-child { border-right: 1px solid #f5f5f5; border-radius: 0 12px 12px 0; }
+        
+        tr:hover td { 
+            background: var(--primary); 
+            color: white; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(75, 0, 130, 0.15);
+        }
+
+        /* KONTAK */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .info-item { margin-bottom: 25px; }
+        .info-item h4 { color: var(--accent); text-transform: uppercase; margin-bottom: 5px; font-size: 0.75rem; letter-spacing: 1px; }
+        .info-item p { font-size: 1rem; font-weight: 600; color: var(--primary); line-height: 1.5; }
+
+        .cta-wa {
+            background: #25D366;
+            color: white;
+            padding: 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: 700;
+            gap: 12px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        .cta-wa:hover { background: #1eb956; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+
+        /* FLOATING BUTTON */
+        .floating-wa {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25D366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            z-index: 9999; transition: var(--transition);
+        }
+        .floating-wa:hover { transform: scale(1.1); }
+
+        footer { background: var(--dark); color: rgba(255,255,255,0.5); padding: 40px 8%; text-align: center; font-size: 0.85rem; border-top: 1px solid #333; }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+            section { padding: 80px 5% 40px; }
+            .logo { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- LOGO TERBARU -->
+        <div class="logo">ARJUNA DEEP <span>TRAVELING</span></div>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#paket">Paket Wisata</a></li>
+                <li><a href="#rental">Armada</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda">
+        <p>Premium Travel Experience</p>
+        <!-- JUDUL HERO DIUBAH -->
+        <h1>ARJUNA DEEP TRAVELING</h1>
+        <a href="#paket" class="btn-main">Eksplorasi Sekarang</a>
+    </section>
+
+    <section id="paket">
+        <div class="section-header">
+            <h2>PAKET WISATA</h2>
+        </div>
+        <div class="glass-card">
+            <table>
+                <thead>
+                    <tr><th>Layanan Wisata Unggulan</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Paket Wisata Jawa, Bali, & Lombok</td></tr>
+                    <tr><td>Corporate & Family Gathering</td></tr>
+                    <tr><td>Professional Study Tour</td></tr>
+                    <tr><td>Ziarah Wali Songo</td></tr>
+                    <tr><td>Kunjungan Kerja Instansi</td></tr>
+                    <tr><td>Perjalanan Dinas Kantor</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="rental">
+        <div class="section-header">
+            <h2>ARMADA RENTAL</h2>
+        </div>
+        <div class="glass-card">
+            <table>
+                <thead>
+                    <tr><th>Pilihan Kendaraan Premium</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Big Bus Luxury (Seat 45, 50, 60)</td></tr>
+                    <tr><td>Medium Bus Executive (Seat 35)</td></tr>
+                    <tr><td>Long Elf Giga Premium</td></tr>
+                    <tr><td>Short Elf Travel</td></tr>
+                    <tr><td>Toyota Hiace Commuter & Premio</td></tr>
+                    <tr><td>Private Car Charter (Avanza/Innova)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="kontak">
+        <div class="section-header">
+            <h2>HUBUNGI KAMI</h2>
+        </div>
+        <div class="glass-card contact-grid">
+            <div class="contact-info">
+                <div class="info-item">
+                    <h4>Lokasi Kantor</h4>
+                    <p>Perum Insani Regency Blok F-6,<br>Rembang - Pasuruan</p>
+                </div>
+                <div class="info-item">
+                    <h4>Jam Operasional</h4>
+                    <p>Senin - Minggu: 08:00 - 20:00</p>
+                </div>
+            </div>
+            <div class="contact-action">
+                <a href="https://wa.me/6285236555630" class="cta-wa" target="_blank">
+                    <svg fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.012 0-3.986-.511-5.727-1.483l-6.266 1.703zm5.09-3.746l.303.18c1.55.921 3.342 1.408 5.171 1.408 5.665 0 10.274-4.612 10.274-10.277 0-2.744-1.07-5.324-3.014-7.267-1.942-1.943-4.52-3.011-7.259-3.011-5.666 0-10.274 4.612-10.274 10.277 0 1.939.549 3.829 1.588 5.459l.199.313-1.015 3.704 3.803-1.036zm14.751-8.291c-.115-.193-.434-.309-.915-.551s-2.825-1.394-3.262-1.555-.741-.241-1.056.241-.1.921-.434 1.309-.648.434-.915.193-.115-.193-.434-.309-1.35-.494-2.57-1.583c-.947-.845-1.587-1.888-1.772-2.198-.185-.309-.02-.477.101-.597s.241-.289.362-.434c.121-.145.161-.241.241-.402.08-.161.04-.309-.02-.434s-.434-1.056-.597-1.455c-.158-.389-.317-.336-.434-.342h-.372c-.153 0-.403.058-.612.288-.209.231-.796.779-.796 1.899s.813 2.198.925 2.351c.113.153 1.6 2.441 3.877 3.42 1.896.815 2.279.652 2.701.612s1.351-.552 1.541-1.08c.191-.527.191-.981.134-1.08z"/></svg>
+                    RESERVASI SEKARANG
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- FOOTER DIUBAH -->
+        <p>&copy; 2026 ARJUNA DEEP TRAVELING - Pasuruan, Jawa Timur.</p>
+    </footer>
+
+    <a href="https://wa.me/6285236555630" class="floating-wa" target="_blank">
+        <svg fill="white" width="30" height="30" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.012 0-3.986-.511-5.727-1.483l-6.266 1.703zm5.09-3.746l.303.18c1.55.921 3.342 1.408 5.171 1.408 5.665 0 10.274-4.612 10.274-10.277 0-2.744-1.07-5.324-3.014-7.267-1.942-1.943-4.52-3.011-7.259-3.011-5.666 0-10.274 4.612-10.274 10.277 0 1.939.549 3.829 1.588 5.459l.199.313-1.015 3.704 3.803-1.036zm14.751-8.291c-.115-.193-.434-.309-.915-.551s-2.825-1.394-3.262-1.555-.741-.241-1.056.241-.1.921-.434 1.309-.648.434-.915.193-.115-.193-.434-.309-1.35-.494-2.57-1.583c-.947-.845-1.587-1.888-1.772-2.198-.185-.309-.02-.477.101-.597s.241-.289.362-.434c.121-.145.161-.241.241-.402.08-.161.04-.309-.02-.434s-.434-1.056-.597-1.455c-.158-.389-.317-.336-.434-.342h-.372c-.153 0-.403.058-.612.288-.209.231-.796.779-.796 1.899s.813 2.198.925 2.351c.113.153 1.6 2.441 3.877 3.42 1.896.815 2.279.652 2.701.612s1.351-.552 1.541-1.08c.191-.527.191-.981.134-1.08z"/></svg>
+    </a>
+
+</body>
+</html>
